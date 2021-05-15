@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Employee {
-    private Long id;
+    private long id;
     private static final AtomicInteger count = new AtomicInteger(-1);
 
     private String firstname;
@@ -26,16 +26,17 @@ public class Employee {
         this.lastname = lastname;
         this.salary = salary;
         this.address = address;
+        id = count.incrementAndGet();
     }
 
     public Employee() {
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

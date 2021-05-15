@@ -1,19 +1,19 @@
 package com.younes.services;
 
 import com.younes.models.Employee;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
 public class EmployeeServiceImpl implements EmployeesService{
 
-    private Logger logger = (Logger) LoggerFactory.getLogger(EmployeeServiceImpl.class);
+    private Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
 
     private List<Employee> employees = Stream.of(
             new Employee("Younes","MELHEB", new BigDecimal(444444), "France"),
