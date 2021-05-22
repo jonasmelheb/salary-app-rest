@@ -1,5 +1,8 @@
 package com.younes.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -8,9 +11,20 @@ public class Employee {
     private long id;
     private static final AtomicInteger count = new AtomicInteger(-1);
 
+    @NotEmpty
+    @NotNull
     private String firstname;
+
+    @NotEmpty
+    @NotNull
     private String lastname;
+
+    @NotNull
     private BigDecimal salary;
+
+    @NotEmpty
+    @NotNull
+    @Size(max = 256, message = "Adresse should have max 256 characters")
     private String address;
 
     public Employee(Long id, String firstname, String lastname, BigDecimal salary, String address) {
@@ -26,7 +40,7 @@ public class Employee {
         this.lastname = lastname;
         this.salary = salary;
         this.address = address;
-        id = count.incrementAndGet();
+        this.id = count.incrementAndGet();
     }
 
     public Employee() {
