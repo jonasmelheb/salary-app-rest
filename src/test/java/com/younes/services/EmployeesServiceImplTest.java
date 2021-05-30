@@ -13,17 +13,17 @@ import static org.junit.Assert.*;
 public class EmployeesServiceImplTest {
     private EmployeeServiceImpl employeeServiceImpl;
 
-    @Before
+ /*   @Before
     public void setUp() {
         employeeServiceImpl = new EmployeeServiceImpl();
-    }
+    }*/
 
     @Test
     public void addEmployees() throws Exception {
         List<Employee> employees = employeeServiceImpl.getListEmployees();
         int sizeBefore = employees.size();
         Employee employee = new Employee("test", "test", new BigDecimal(4444), "test");
-        employees.add(employee);
+        employeeServiceImpl.addEmployee(employee);
         int sizeAfter = employees.size();
 
         assertThat(sizeAfter, is(sizeBefore + 1 ));
@@ -92,6 +92,5 @@ public class EmployeesServiceImplTest {
         assertThat(employees.get(lastItem).getLastname(), is("UpdatedNes"));
         assertThat(employees.get(lastItem).getAddress(), is("UpdatedAdress"));
     }
-
 
 }

@@ -1,6 +1,7 @@
 package com.younes.services;
 
 import com.younes.models.Employee;
+import com.younes.repositories.EmployeesRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,12 @@ import java.util.stream.Stream;
 @Service
 public class EmployeeServiceImpl implements EmployeesService{
 
+    private final EmployeesRepository employeesRepository;
+
+    public EmployeeServiceImpl(EmployeesRepository employeesRepository) {
+        this.employeesRepository = employeesRepository;
+    }
+
     private Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
 
     private List<Employee> employees = Stream.of(
@@ -20,6 +27,9 @@ public class EmployeeServiceImpl implements EmployeesService{
             new Employee("Nihad", "Melheb", new BigDecimal(555555), "France"),
             new Employee("Nemra", "MELHEB", new BigDecimal(333333),"France"))
             .collect(Collectors.toList());
+
+
+
     @Override
     public void addEmployee(Employee employee) {
         employees.add(employee);

@@ -2,7 +2,7 @@
 
 Une simple application pour la gestion du salaire.
 
-## Environnement 
+## Environment 
 ### Requirements
 
 * Java
